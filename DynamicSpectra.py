@@ -1,17 +1,24 @@
 import numpy as np
-
-import matplotlib.pyplot as pltfrom scipy.fftpack import fft
+import matplotlib.pyplot as plt
+from scipy.fftpack import fft
 from math import pi
 
-
-x=np.loadtxt(r'C:\Users\Sidharth S Nair\Downloads\vela_Pulsar.mbr',usecols=(0))
-y=np.loadtxt(r'C:\Users\Sidharth S Nair\Downloads\vela_Pulsar.mbr',usecols=(1))
-max1=max(x)
-min1=min(x)
-max2=max(y)
-min2=min(y)
+x=np.array(np.loadtxt('vela_Pulsar.mbr',usecols=(0)))
+y=np.array(np.loadtxt('vela_Pulsar.mbr',usecols=(1)))
 x1=np.reshape(x,(512,-1),order='F')
-fs=1/(33000000)
-x2=fft(x1)
-for k in x:
-  
+y1=np.reshape(x,(512,-1),order='F')
+for i in range[0:939]:
+    x2=np.reshape((np.mean(x[i:i+60],axis=0)),(512,-1),order='F')
+    y2=np.reshape((np.mean(y[i:i+60],axis=0)),(512,-1),order='F')
+    i+=60;
+x3=fft(abs(x2))
+
+fs=33e6
+
+t=np.arange(0,1,1/fs)
+n=np.size(t)
+fr=(Fs/2)*np.linspace(0,1,n/2)
+plt.subplot(2,1,1)
+psd=plt.plot(t,x3**2)
+plt.subplot(2,1,2)
+asd=plt.plot(t,math.sqrt(x3**2))
