@@ -13,11 +13,11 @@ for i in range[0:939]:
     i+=60;
 x3=fft(abs(x2))
 
-fs=33e6
+fs=33e6 #sampling frequency
 
 t=np.arange(0,1,1/fs)
 n=np.size(t)
-fr=(Fs/2)*np.linspace(0,1,n/2)
+fr=(fs/2)*np.linspace(0,1,n/2)
 plt.subplot(2,1,1)
 psd=plt.plot(t,x3**2)
 plt.subplot(2,1,2)
