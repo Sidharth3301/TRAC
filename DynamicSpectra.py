@@ -14,14 +14,14 @@ for i in range[0:939]:
 x3=fft(abs(x2))
 
 fs=33e6
-
+x4=np.linalg.matrix_power(x3,2)
 t=np.arange(0,1,1/fs)
 n=np.size(t)
 fr=(Fs/2)*np.linspace(0,1,n/2)
 plt.subplot(2,1,1)
-psd=plt.plot(fr,x3**2)
+psd=plt.plot(fr,x4)
 plt.subplot(2,1,2)
-asd=plt.plot(fr,math.sqrt(x3**2))
+asd=plt.plot(fr,np.sqrt(x4))
 
 
     
